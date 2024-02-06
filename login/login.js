@@ -2,8 +2,8 @@ console.log("Here we go again...");
 
 const loginForm = document.querySelector("form#login");
 
-loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
     console.log("Trying to login");
     const username = loginForm.username.value;
     console.log("username: ", username);
@@ -20,7 +20,7 @@ async function getToken(username) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username: username }),
+            body: JSON.stringify({ username }),
         };
         console.log(options);
         const response = await fetch(`https://api.noroff.dev/api/v1/auth/login`, options); 
@@ -30,7 +30,7 @@ async function getToken(username) {
             console.log(data);
             localStorage.setItem("username", username);
             localStorage.setItem("token", data.accessToken);
-            window.location = "index.html"; // Automatic
+            //window.location = "index.html"; // Automatic
         } else {
             throw new Error(response.statusText);
         }
