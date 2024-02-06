@@ -5,7 +5,7 @@ const loginForm = document.querySelector("form#login");
 loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
     console.log("Trying to login");
-    const username = loginForm.username.value;
+    const username = loginForm.username.value.trim();
     console.log("username: ", username);
     if (username) {
         console.log("Going to get token")
@@ -30,7 +30,7 @@ async function getToken(username) {
             console.log(data);
             localStorage.setItem("username", username);
             localStorage.setItem("token", data.accessToken);
-            //window.location = "index.html"; // Automatic
+            window.location = "index.html"; // Automatic
         } else {
             throw new Error(response.statusText);
         }
