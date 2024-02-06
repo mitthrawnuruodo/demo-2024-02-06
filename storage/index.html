@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing the Web Storage API</title>
+</head>
+<body>
+    <p>Noting to see here, open the Inspector to Console and/or Storage</p>
+    <p id="test">Press button</p>
+    <button id="go">Read Local Storage</button>
+<script>
+    console.log("Let's go...");
+    localStorage.setItem('myCat', 'Bran the Magnificant');
+    sessionStorage.setItem('myCat', 'Sansa');
+    document.getElementById('go').addEventListener('click', () => {
+        document.getElementById('test').innerHTML = localStorage.getItem('myCat');
+    })
+</script>
+</body>
+</html>
