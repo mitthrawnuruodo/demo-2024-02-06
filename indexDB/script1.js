@@ -1,3 +1,5 @@
+console.log("script1.js")
+
 let db, store;
 const request = window.indexedDB.open( 'myDatabase', 1);
 
